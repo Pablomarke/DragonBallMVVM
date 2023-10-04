@@ -21,10 +21,8 @@ final class IntroViewModel {
     }
     
     private func getAndChargeHeroes() {
-        
-        print("Take your heroes!")
+        viewDelegate?.mySession()
     }
-    
 }
 
 //MARK: - Extension -

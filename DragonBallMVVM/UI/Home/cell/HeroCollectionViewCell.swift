@@ -15,8 +15,25 @@ class HeroCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        cellView.backgroundColor = .green
-        nameHero.text = "Goku"
+        cellStyle()
     }
-
+    
+    override func prepareForReuse() {
+        imageHero.image = nil
+        nameHero.text = nil
+    }
+    
+    func cellStyle() {
+        cellView.backgroundColor = .systemOrange
+    }
+    
+    func updateViews(data: Hero?){
+        guard let data = data else {return}
+        update(name: data.name)
+        imageHero.setImage(for: data.photo)
+    }
+    
+    func update(name: String?) {
+        nameHero.text = name ?? ""
+    }
 }

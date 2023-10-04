@@ -12,7 +12,10 @@ import UIKit
 protocol IntroViewControllerProtocol: AnyObject {
     func navigationToHeroes()
     func myLoading()
+    func mySession()
 }
+
+
 
 //MARK: - Clase -
 class IntroViewController: UIViewController {
@@ -26,11 +29,24 @@ class IntroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         startedView()
+        viewModel?.viewIsLoaded()
+        
     }
 }
 
 //MARK: - Extension -
 extension IntroViewController: IntroViewControllerProtocol {
+    func mySession() {
+        session.login(user: "markedevelop@gmail.com", password: "abcd1234") { result in
+            switch result {
+                case .success(_):
+                    print("Acceso ok!")
+                case .failure(let error):
+                    print(error)
+            }
+        }
+    }
+    
     func startedView() {
         self.view.backgroundColor = .red
         introLabel.isHidden = true
@@ -44,7 +60,7 @@ extension IntroViewController: IntroViewControllerProtocol {
     }
     
     func myLoading() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1) ) {
+        DispatchQueue.main.asyncAfter(deadline: .now()  ) {
             self.introLabel.isHidden = false
             self.introLabel.text = "Bienvenido!! un segundo que estamos cargando los heroes..."
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1) ) {
@@ -55,6 +71,7 @@ extension IntroViewController: IntroViewControllerProtocol {
     
     func navigateToHomeHeroes() {
         let home = HomeViewController()
+        home.viewModel = HomeViewModel(viewDelegate: home)
         self.navigationController?.setViewControllers([home],
                                                       animated: true)
     }

@@ -25,6 +25,7 @@
 		39310DAA2ACD7BF000DEB7CC /* GetTransformationBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39310DA92ACD7BF000DEB7CC /* GetTransformationBody.swift */; };
 		39310DAC2ACD7C1400DEB7CC /* LocalDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39310DAB2ACD7C1400DEB7CC /* LocalDataModel.swift */; };
 		39310DAE2ACD7C7100DEB7CC /* HeroesAndTransformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39310DAD2ACD7C7100DEB7CC /* HeroesAndTransformations.swift */; };
+		39310DB02ACD7F8600DEB7CC /* UIimage+remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39310DAF2ACD7F8600DEB7CC /* UIimage+remote.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		39310DA92ACD7BF000DEB7CC /* GetTransformationBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransformationBody.swift; sourceTree = "<group>"; };
 		39310DAB2ACD7C1400DEB7CC /* LocalDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataModel.swift; sourceTree = "<group>"; };
 		39310DAD2ACD7C7100DEB7CC /* HeroesAndTransformations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesAndTransformations.swift; sourceTree = "<group>"; };
+		39310DAF2ACD7F8600DEB7CC /* UIimage+remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIimage+remote.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +83,10 @@
 			isa = PBXGroup;
 			children = (
 				39310D842ACD55F800DEB7CC /* Info.plist */,
-				39310D8B2ACD562D00DEB7CC /* Domain */,
 				39310D8A2ACD562000DEB7CC /* App */,
+				39310D8B2ACD562D00DEB7CC /* Domain */,
+				39310DB52ACD810000DEB7CC /* Resources */,
 				39310D8C2ACD566100DEB7CC /* UI */,
-				39310D7F2ACD55F800DEB7CC /* Assets.xcassets */,
 			);
 			path = DragonBallMVVM;
 			sourceTree = "<group>";
@@ -101,12 +103,10 @@
 		39310D8B2ACD562D00DEB7CC /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				39310DA32ACD7B0C00DEB7CC /* HeroModel.swift */,
-				39310DA52ACD7B9E00DEB7CC /* TransformationModel.swift */,
-				39310DA72ACD7BCA00DEB7CC /* NetworkModel.swift */,
-				39310DA92ACD7BF000DEB7CC /* GetTransformationBody.swift */,
-				39310DAB2ACD7C1400DEB7CC /* LocalDataModel.swift */,
-				39310DAD2ACD7C7100DEB7CC /* HeroesAndTransformations.swift */,
+				39310DB42ACD7FFE00DEB7CC /* LocalData */,
+				39310DB32ACD7FF000DEB7CC /* Networking */,
+				39310DB22ACD7FE900DEB7CC /* Protocols */,
+				39310DB12ACD7FE000DEB7CC /* Models */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -173,6 +173,49 @@
 				39310DA02ACD770600DEB7CC /* HeroCollectionViewCell.xib */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		39310DB12ACD7FE000DEB7CC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				39310DA52ACD7B9E00DEB7CC /* TransformationModel.swift */,
+				39310DA32ACD7B0C00DEB7CC /* HeroModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		39310DB22ACD7FE900DEB7CC /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				39310DAD2ACD7C7100DEB7CC /* HeroesAndTransformations.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		39310DB32ACD7FF000DEB7CC /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				39310DA92ACD7BF000DEB7CC /* GetTransformationBody.swift */,
+				39310DA72ACD7BCA00DEB7CC /* NetworkModel.swift */,
+				39310DAF2ACD7F8600DEB7CC /* UIimage+remote.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		39310DB42ACD7FFE00DEB7CC /* LocalData */ = {
+			isa = PBXGroup;
+			children = (
+				39310DAB2ACD7C1400DEB7CC /* LocalDataModel.swift */,
+			);
+			path = LocalData;
+			sourceTree = "<group>";
+		};
+		39310DB52ACD810000DEB7CC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				39310D7F2ACD55F800DEB7CC /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +296,7 @@
 				39310DAE2ACD7C7100DEB7CC /* HeroesAndTransformations.swift in Sources */,
 				39310DA62ACD7B9E00DEB7CC /* TransformationModel.swift in Sources */,
 				39310DA12ACD770600DEB7CC /* HeroCollectionViewCell.swift in Sources */,
+				39310DB02ACD7F8600DEB7CC /* UIimage+remote.swift in Sources */,
 				39310D9D2ACD72F500DEB7CC /* HomeViewModel.swift in Sources */,
 				39310DAC2ACD7C1400DEB7CC /* LocalDataModel.swift in Sources */,
 				39310DAA2ACD7BF000DEB7CC /* GetTransformationBody.swift in Sources */,
