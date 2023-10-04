@@ -19,6 +19,12 @@
 		39310D9D2ACD72F500DEB7CC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39310D9C2ACD72F500DEB7CC /* HomeViewModel.swift */; };
 		39310DA12ACD770600DEB7CC /* HeroCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39310D9F2ACD770600DEB7CC /* HeroCollectionViewCell.swift */; };
 		39310DA22ACD770600DEB7CC /* HeroCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39310DA02ACD770600DEB7CC /* HeroCollectionViewCell.xib */; };
+		39310DA42ACD7B0C00DEB7CC /* HeroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39310DA32ACD7B0C00DEB7CC /* HeroModel.swift */; };
+		39310DA62ACD7B9E00DEB7CC /* TransformationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39310DA52ACD7B9E00DEB7CC /* TransformationModel.swift */; };
+		39310DA82ACD7BCA00DEB7CC /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39310DA72ACD7BCA00DEB7CC /* NetworkModel.swift */; };
+		39310DAA2ACD7BF000DEB7CC /* GetTransformationBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39310DA92ACD7BF000DEB7CC /* GetTransformationBody.swift */; };
+		39310DAC2ACD7C1400DEB7CC /* LocalDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39310DAB2ACD7C1400DEB7CC /* LocalDataModel.swift */; };
+		39310DAE2ACD7C7100DEB7CC /* HeroesAndTransformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39310DAD2ACD7C7100DEB7CC /* HeroesAndTransformations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +42,12 @@
 		39310D9C2ACD72F500DEB7CC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		39310D9F2ACD770600DEB7CC /* HeroCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCollectionViewCell.swift; sourceTree = "<group>"; };
 		39310DA02ACD770600DEB7CC /* HeroCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCollectionViewCell.xib; sourceTree = "<group>"; };
+		39310DA32ACD7B0C00DEB7CC /* HeroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroModel.swift; sourceTree = "<group>"; };
+		39310DA52ACD7B9E00DEB7CC /* TransformationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationModel.swift; sourceTree = "<group>"; };
+		39310DA72ACD7BCA00DEB7CC /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
+		39310DA92ACD7BF000DEB7CC /* GetTransformationBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransformationBody.swift; sourceTree = "<group>"; };
+		39310DAB2ACD7C1400DEB7CC /* LocalDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataModel.swift; sourceTree = "<group>"; };
+		39310DAD2ACD7C7100DEB7CC /* HeroesAndTransformations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesAndTransformations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +101,12 @@
 		39310D8B2ACD562D00DEB7CC /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				39310DA32ACD7B0C00DEB7CC /* HeroModel.swift */,
+				39310DA52ACD7B9E00DEB7CC /* TransformationModel.swift */,
+				39310DA72ACD7BCA00DEB7CC /* NetworkModel.swift */,
+				39310DA92ACD7BF000DEB7CC /* GetTransformationBody.swift */,
+				39310DAB2ACD7C1400DEB7CC /* LocalDataModel.swift */,
+				39310DAD2ACD7C7100DEB7CC /* HeroesAndTransformations.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -231,11 +249,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				39310D9A2ACD616000DEB7CC /* HomeViewController.swift in Sources */,
+				39310DA42ACD7B0C00DEB7CC /* HeroModel.swift in Sources */,
+				39310DAE2ACD7C7100DEB7CC /* HeroesAndTransformations.swift in Sources */,
+				39310DA62ACD7B9E00DEB7CC /* TransformationModel.swift in Sources */,
 				39310DA12ACD770600DEB7CC /* HeroCollectionViewCell.swift in Sources */,
 				39310D9D2ACD72F500DEB7CC /* HomeViewModel.swift in Sources */,
+				39310DAC2ACD7C1400DEB7CC /* LocalDataModel.swift in Sources */,
+				39310DAA2ACD7BF000DEB7CC /* GetTransformationBody.swift in Sources */,
 				39310D902ACD56A300DEB7CC /* IntroViewController.swift in Sources */,
 				39310D772ACD55F600DEB7CC /* AppDelegate.swift in Sources */,
 				39310D792ACD55F600DEB7CC /* SceneDelegate.swift in Sources */,
+				39310DA82ACD7BCA00DEB7CC /* NetworkModel.swift in Sources */,
 				39310D962ACD579F00DEB7CC /* IntroViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
