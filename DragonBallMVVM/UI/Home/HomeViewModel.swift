@@ -28,10 +28,7 @@ final class HomeViewModel {
     
      private func loadData() {
          self.myHeroes()
-         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)  ) {
-             self.viewDelegate?.printData()
-             print(self.viewData.count)
-         }
+         
     }
 }
 //MARK: - Extension -
@@ -47,6 +44,10 @@ extension HomeViewModel: HomeViewProtocol {
                 return
             }
             self?.viewData = heroes
+            DispatchQueue.main.async {
+                self?.viewDelegate?.printData()
+                print(self?.viewData.count)
+            }
         }
     }
     
