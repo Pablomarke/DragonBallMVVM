@@ -46,7 +46,6 @@ extension HomeViewModel: HomeViewProtocol {
             self?.viewData = heroes
             DispatchQueue.main.async {
                 self?.viewDelegate?.printData()
-                print(self?.viewData.count)
             }
         }
     }
