@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 //MARK: - Protocolo -
 protocol DetailViewModelProtocol {
     func viewLoaded()
@@ -14,18 +15,15 @@ protocol DetailViewModelProtocol {
 final class DetailViewModel {
     
     private weak var detailDelegate: DetailViewControllerProtocol?
-    private var detailData: Hero?
+    private var detailData: HeroesAndTransformations?
     
-    init(detailDelegate: DetailViewControllerProtocol? = nil, detailData: Hero?) {
+    init(detailDelegate: DetailViewControllerProtocol? = nil, detailData: HeroesAndTransformations?) {
         self.detailDelegate = detailDelegate
         self.detailData = detailData
     }
     
-    
-    
     private func loadData(){
         detailDelegate?.updateView(data: detailData)
-        
     }
 }
 

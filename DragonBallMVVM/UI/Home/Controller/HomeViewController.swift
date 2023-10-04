@@ -8,7 +8,7 @@
 import UIKit
 //MARK: - Protocolo -
 protocol HomeViewControllerProtocol: AnyObject {
-    func showHeroDetail(hero: Hero)
+    func showHeroDetail(hero: HeroesAndTransformations)
     func printData()
 }
 
@@ -62,10 +62,11 @@ extension HomeViewController: UICollectionViewDelegate,
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        let hero = viewModel?.heroData(at: indexPath.row)
-        showHeroDetail(hero: hero!)
+        guard let hero = viewModel?.heroData(at: indexPath.row) else { return }
+        showHeroDetail(hero: hero )
     }
 }
+
 
 //MARK: - Extension -
 extension HomeViewController: HomeViewControllerProtocol {
@@ -73,7 +74,7 @@ extension HomeViewController: HomeViewControllerProtocol {
         heroesCollection.reloadData()
     }
     
-    func showHeroDetail(hero: Hero) {
+    func showHeroDetail(hero: HeroesAndTransformations) {
         let detail = DetailViewController()
         detail.detailViewModel = DetailViewModel(detailDelegate: detail, 
                                                  detailData: hero)

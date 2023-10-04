@@ -10,7 +10,7 @@ import Foundation
 protocol HomeViewProtocol {
     func viewIsLoaded()
     func myHeroes()
-    func heroData(at index: Int) -> Hero?
+    func heroData(at index: Int) -> HeroesAndTransformations?
     var heroCount: Int {get}
 }
 
@@ -20,7 +20,7 @@ var session = NetworkModel()
 final class HomeViewModel {
     
     private weak var viewDelegate: HomeViewControllerProtocol?
-    private var viewData: Heroes = []
+    private var viewData: [HeroesAndTransformations] = []
     
     init(viewDelegate: HomeViewControllerProtocol? = nil ) {
         self.viewDelegate = viewDelegate
@@ -54,7 +54,7 @@ extension HomeViewModel: HomeViewProtocol {
         viewData.count
     }
     
-    func heroData(at index: Int) -> Hero? {
+    func heroData(at index: Int) -> HeroesAndTransformations? {
         return viewData[index]
     }
     

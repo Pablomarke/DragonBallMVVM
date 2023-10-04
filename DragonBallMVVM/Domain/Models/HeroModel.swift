@@ -7,11 +7,12 @@
 
 import Foundation
 
-typealias Heroes = [Hero]
-
-
 struct Hero: Decodable {
     let id, description, name : String
     let photo: URL
     let favorite: Bool
+}
+
+extension Hero: HeroesAndTransformations {
+    
 }

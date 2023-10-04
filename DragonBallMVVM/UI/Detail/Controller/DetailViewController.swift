@@ -6,9 +6,10 @@
 //
 
 import UIKit
+
 //MARK: - Protocolo -
 protocol DetailViewControllerProtocol: AnyObject {
-    func updateView(data: Hero?)
+    func updateView(data: HeroesAndTransformations?)
 }
 
 //MARK: - Clase -
@@ -31,7 +32,7 @@ class DetailViewController: UIViewController {
     
 //MARK: - Extension -
 extension DetailViewController: DetailViewControllerProtocol {
-    func updateView(data: Hero?) {
+    func updateView(data: HeroesAndTransformations?) {
         guard let data = data else {return}
         heroImage.setImage(for: data.photo)
         heroNameLabel.text = data.name 

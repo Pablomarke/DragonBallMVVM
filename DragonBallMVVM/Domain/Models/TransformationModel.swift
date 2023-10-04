@@ -11,3 +11,11 @@ struct Transformation: Decodable {
     let name, id, description : String
     let photo: URL
 }
+
+extension Transformation: HeroesAndTransformations{
+    var favorite: Bool {
+        return false
+    }
+    
+    
+}

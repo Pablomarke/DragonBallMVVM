@@ -27,7 +27,7 @@ class HeroCollectionViewCell: UICollectionViewCell {
         cellView.backgroundColor = .systemOrange
     }
     
-    func updateViews(data: Hero?){
+    func updateViews(data: HeroesAndTransformations?){
         guard let data = data else {return}
         update(name: data.name)
         imageHero.setImage(for: data.photo)
