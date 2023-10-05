@@ -232,12 +232,36 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		3979F7EF2ACEBED400B55B91 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				39EC3F742ACE436F00C4516C /* TransformationViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3979F7F02ACEBEDF00B55B91 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				39EC3F752ACE436F00C4516C /* TransformationViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3979F7F12ACEBEE500B55B91 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				39EC3F722ACE3AA000C4516C /* TransformationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		398FD2AA2ACDE06B009410F4 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				398FD2B62ACDE892009410F4 /* ViewModel */,
-				398FD2B52ACDE88C009410F4 /* Controller */,
 				398FD2B42ACDE883009410F4 /* View */,
+				398FD2B52ACDE88C009410F4 /* Controller */,
+				398FD2B62ACDE892009410F4 /* ViewModel */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -293,9 +317,9 @@
 		39EC3F6D2ACE385700C4516C /* Transformations */ = {
 			isa = PBXGroup;
 			children = (
-				39EC3F722ACE3AA000C4516C /* TransformationViewModel.swift */,
-				39EC3F742ACE436F00C4516C /* TransformationViewController.swift */,
-				39EC3F752ACE436F00C4516C /* TransformationViewController.xib */,
+				3979F7F02ACEBEDF00B55B91 /* View */,
+				3979F7EF2ACEBED400B55B91 /* Controller */,
+				3979F7F12ACEBEE500B55B91 /* ViewModel */,
 			);
 			path = Transformations;
 			sourceTree = "<group>";

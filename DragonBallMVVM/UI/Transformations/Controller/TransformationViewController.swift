@@ -34,11 +34,17 @@ class TransformationViewController: UIViewController {
 }
 // MARK: UICollectionViewDataSource
 extension TransformationViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
         return transViewModel?.transformationCount ?? 0
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         guard let cell = transformationCollection.dequeueReusableCell(
             withReuseIdentifier: "HeroCell",
             for: indexPath
@@ -56,8 +62,9 @@ extension TransformationViewController: UICollectionViewDataSource {
 // MARK: UICollectionViewDelegate
 
 extension TransformationViewController: UICollectionViewDelegate {
-    
+    //TODO: Navegación a detalle transformation
 }
+
 //MARK: - Extension -
 extension TransformationViewController: TransformationsViewControllerProtocol {
   

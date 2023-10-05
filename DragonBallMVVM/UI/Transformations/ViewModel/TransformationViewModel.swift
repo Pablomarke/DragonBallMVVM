@@ -29,10 +29,9 @@ final class TransformationViewModel {
     
      private func loadData() {
             myTransformations()
-         
-        
     }
 }
+
 //MARK: - Extension -
 extension TransformationViewModel: TransformationViewModelProtocol {
     func viewIsLoaded() {
@@ -46,7 +45,6 @@ extension TransformationViewModel: TransformationViewModelProtocol {
     var transformationCount: Int {
         transViewData.count
     }
-    
     
     func myTransformations() {
         session.getTransformations(
@@ -62,6 +60,5 @@ extension TransformationViewModel: TransformationViewModelProtocol {
                     print("\(error)")
             }
         }
-        
     }
 }

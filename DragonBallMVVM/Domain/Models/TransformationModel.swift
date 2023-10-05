@@ -16,6 +16,4 @@ extension Transformation: HeroesAndTransformations{
     var favorite: Bool {
         return false
     }
-    
-    
 }

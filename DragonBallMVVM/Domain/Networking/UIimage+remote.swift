@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Extension -
 extension UIImageView {
     func setImage(for url: URL) {
         downloadImage(url: url) { [weak self] result in
@@ -19,6 +20,7 @@ extension UIImageView {
         }
     }
 
+// MARK: - Función para obtener imagenes desde URL -
     private func downloadImage(
         url: URL,
         completion: @escaping (

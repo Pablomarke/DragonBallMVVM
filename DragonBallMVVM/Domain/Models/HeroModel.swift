@@ -14,5 +14,4 @@ struct Hero: Decodable {
 }
 
 extension Hero: HeroesAndTransformations {
-    
 }
