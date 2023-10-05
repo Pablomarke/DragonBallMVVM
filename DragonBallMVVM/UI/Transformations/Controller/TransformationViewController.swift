@@ -22,7 +22,6 @@ class TransformationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Entra")
         transformationCollection.dataSource = self
         transformationCollection.delegate = self
 
