@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 //MARK: - Protocolo -
 protocol IntroViewControllerProtocol: AnyObject {
     func navigationToHeroes()
@@ -15,14 +14,13 @@ protocol IntroViewControllerProtocol: AnyObject {
     func mySession()
 }
 
-
-
 //MARK: - Clase -
 class IntroViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var introLabel: UILabel!
-    
+    @IBOutlet weak var label1: UILabel!
+
     var viewModel: IntroViewModelProtocol?
     
     //MARK: - Ciclo de vida
@@ -30,14 +28,14 @@ class IntroViewController: UIViewController {
         super.viewDidLoad()
         startedView()
         viewModel?.viewIsLoaded()
-        
     }
 }
 
 //MARK: - Extension -
 extension IntroViewController: IntroViewControllerProtocol {
     func mySession() {
-        session.login(user: "markedevelop@gmail.com", password: "abcd1234") { result in
+        session.login(user: "markedevelop@gmail.com", 
+                      password: "abcd1234") { result in
             switch result {
                 case .success(_):
                     print("Acceso ok!")
@@ -48,8 +46,6 @@ extension IntroViewController: IntroViewControllerProtocol {
     }
     
     func startedView() {
-        self.view.backgroundColor = .red
-        introLabel.isHidden = true
         myLoading()
     }
     
@@ -60,11 +56,13 @@ extension IntroViewController: IntroViewControllerProtocol {
     }
     
     func myLoading() {
-        DispatchQueue.main.asyncAfter(deadline: .now()  ) {
-            self.introLabel.isHidden = false
-            self.introLabel.text = "Bienvenido!! un segundo que estamos cargando los heroes..."
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1) ) {
-                self.navigateToHomeHeroes()
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2) ) {
+                self.label1.text = "Honda Vital"
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2) ) {
+                    self.backgroundImage.image = UIImage(named: "fondo1")
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2) ) {
+                        self.navigateToHomeHeroes()
+                }
             }
         }
     }
@@ -75,5 +73,4 @@ extension IntroViewController: IntroViewControllerProtocol {
         self.navigationController?.setViewControllers([home],
                                                       animated: true)
     }
-    
 }

@@ -24,6 +24,7 @@ final class DetailViewModel {
     
     private func loadData(){
         detailDelegate?.updateView(data: detailData)
+        detailDelegate?.getTransformation(heroe: detailData)
     }
 }
 

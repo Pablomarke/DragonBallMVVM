@@ -26,7 +26,6 @@ final class IntroViewModel {
 }
 
 //MARK: - Extension -
-
 extension IntroViewModel: IntroViewModelProtocol {
     func viewIsLoaded() {
         getAndChargeHeroes()
