@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 //MARK: - Protocolo -
 protocol HomeViewProtocol {
     func viewIsLoaded()
@@ -28,7 +29,6 @@ final class HomeViewModel {
     
      private func loadData() {
          self.myHeroes()
-         
     }
 }
 //MARK: - Extension -
@@ -57,6 +57,4 @@ extension HomeViewModel: HomeViewProtocol {
     func heroData(at index: Int) -> HeroesAndTransformations? {
         return viewData[index]
     }
-    
-    
 }

@@ -29,6 +29,9 @@
 		398FD2AD2ACDE09C009410F4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398FD2AB2ACDE09C009410F4 /* DetailViewController.swift */; };
 		398FD2AE2ACDE09C009410F4 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 398FD2AC2ACDE09C009410F4 /* DetailViewController.xib */; };
 		398FD2B02ACDE75B009410F4 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398FD2AF2ACDE75B009410F4 /* DetailViewModel.swift */; };
+		39EC3F732ACE3AA000C4516C /* TransformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EC3F722ACE3AA000C4516C /* TransformationViewModel.swift */; };
+		39EC3F762ACE436F00C4516C /* TransformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EC3F742ACE436F00C4516C /* TransformationViewController.swift */; };
+		39EC3F772ACE436F00C4516C /* TransformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39EC3F752ACE436F00C4516C /* TransformationViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,9 @@
 		398FD2AB2ACDE09C009410F4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		398FD2AC2ACDE09C009410F4 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		398FD2AF2ACDE75B009410F4 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		39EC3F722ACE3AA000C4516C /* TransformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationViewModel.swift; sourceTree = "<group>"; };
+		39EC3F742ACE436F00C4516C /* TransformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationViewController.swift; sourceTree = "<group>"; };
+		39EC3F752ACE436F00C4516C /* TransformationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransformationViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +129,7 @@
 				39310D8D2ACD567D00DEB7CC /* Intro */,
 				39310D972ACD613400DEB7CC /* Home */,
 				398FD2AA2ACDE06B009410F4 /* Detail */,
+				39EC3F6D2ACE385700C4516C /* Transformations */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -283,6 +290,16 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		39EC3F6D2ACE385700C4516C /* Transformations */ = {
+			isa = PBXGroup;
+			children = (
+				39EC3F722ACE3AA000C4516C /* TransformationViewModel.swift */,
+				39EC3F742ACE436F00C4516C /* TransformationViewController.swift */,
+				39EC3F752ACE436F00C4516C /* TransformationViewController.xib */,
+			);
+			path = Transformations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -347,6 +364,7 @@
 				39310D912ACD56A300DEB7CC /* IntroViewController.xib in Resources */,
 				39310DA22ACD770600DEB7CC /* HeroCollectionViewCell.xib in Resources */,
 				39310D9B2ACD616000DEB7CC /* HomeViewController.xib in Resources */,
+				39EC3F772ACE436F00C4516C /* TransformationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,11 +381,13 @@
 				39310DA62ACD7B9E00DEB7CC /* TransformationModel.swift in Sources */,
 				39310DA12ACD770600DEB7CC /* HeroCollectionViewCell.swift in Sources */,
 				39310DB02ACD7F8600DEB7CC /* UIimage+remote.swift in Sources */,
+				39EC3F762ACE436F00C4516C /* TransformationViewController.swift in Sources */,
 				39310D9D2ACD72F500DEB7CC /* HomeViewModel.swift in Sources */,
 				39310DAC2ACD7C1400DEB7CC /* LocalDataModel.swift in Sources */,
 				39310DAA2ACD7BF000DEB7CC /* GetTransformationBody.swift in Sources */,
 				39310D902ACD56A300DEB7CC /* IntroViewController.swift in Sources */,
 				39310D772ACD55F600DEB7CC /* AppDelegate.swift in Sources */,
+				39EC3F732ACE3AA000C4516C /* TransformationViewModel.swift in Sources */,
 				39310D792ACD55F600DEB7CC /* SceneDelegate.swift in Sources */,
 				398FD2AD2ACDE09C009410F4 /* DetailViewController.swift in Sources */,
 				39310DA82ACD7BCA00DEB7CC /* NetworkModel.swift in Sources */,

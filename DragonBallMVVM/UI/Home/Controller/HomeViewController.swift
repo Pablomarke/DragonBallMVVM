@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 //MARK: - Protocolo -
 protocol HomeViewControllerProtocol: AnyObject {
     func showHeroDetail(hero: HeroesAndTransformations)
@@ -24,7 +25,9 @@ class HomeViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         heroesCollection.dataSource = self
         heroesCollection.delegate = self
-        heroesCollection.register(UINib(nibName: "HeroCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "HeroCell")
+        heroesCollection.register(UINib(nibName: "HeroCollectionViewCell", 
+                                        bundle: nil),
+                                  forCellWithReuseIdentifier: "HeroCell")
         
         viewModel?.viewIsLoaded()
         

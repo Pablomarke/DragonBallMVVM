@@ -10,6 +10,7 @@ import Foundation
 //MARK: - Protocolo -
 protocol DetailViewModelProtocol {
     func viewLoaded()
+    func myHeroFor() -> Hero?
 }
 //MARK: - Clase -
 final class DetailViewModel {
@@ -17,7 +18,8 @@ final class DetailViewModel {
     private weak var detailDelegate: DetailViewControllerProtocol?
     private var detailData: HeroesAndTransformations?
     
-    init(detailDelegate: DetailViewControllerProtocol? = nil, detailData: HeroesAndTransformations?) {
+    init(detailDelegate: DetailViewControllerProtocol? = nil, 
+         detailData: HeroesAndTransformations?) {
         self.detailDelegate = detailDelegate
         self.detailData = detailData
     }
@@ -31,6 +33,13 @@ final class DetailViewModel {
 //MARK: - Extension -
 
 extension DetailViewModel: DetailViewModelProtocol {
+    func myHeroFor() -> Hero? {
+        
+        return detailData as? Hero
+    }
+    
+    
+    
     func viewLoaded() {
         loadData()
     }
