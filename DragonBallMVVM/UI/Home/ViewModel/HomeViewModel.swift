@@ -31,6 +31,7 @@ final class HomeViewModel {
          self.myHeroes()
     }
 }
+
 //MARK: - Extension -
 extension HomeViewModel: HomeViewProtocol {
     func viewIsLoaded() {

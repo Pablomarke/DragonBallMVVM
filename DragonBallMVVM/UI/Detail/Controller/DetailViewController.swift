@@ -14,9 +14,8 @@ protocol DetailViewControllerProtocol: AnyObject {
 }
 
 //MARK: - Clase -
-
 class DetailViewController: UIViewController {
-    
+    //MARK: - Outlets
     @IBOutlet weak var heroNameLabel: UILabel!
     @IBOutlet weak var heroImage: UIImageView!
     @IBOutlet weak var heroDescription: UITextView!
@@ -25,6 +24,7 @@ class DetailViewController: UIViewController {
     
     var detailViewModel: DetailViewModelProtocol?
     
+    //MARK: - Ciclo de vida -
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false
@@ -33,6 +33,7 @@ class DetailViewController: UIViewController {
         detailViewModel?.viewLoaded()
     }
     
+    //MARK: - Acción de Botón -
     @IBAction func transformationAction(_ sender: Any) {
         self.navigateToHomeTransformations(data: detailViewModel?.myHeroFor())
     }
@@ -49,7 +50,6 @@ extension DetailViewController: DetailViewControllerProtocol {
                 case let .success(transformations):
                     DispatchQueue.main.async {
                         modelTransformations.append(contentsOf: transformations)
-                       
                         if modelTransformations.count > 0 {
                             self.transformationButton.isHidden = false
                             self.transformationView.isHidden = false
@@ -72,7 +72,7 @@ extension DetailViewController: DetailViewControllerProtocol {
         guard let data = data else {return}
         let transformationView = TransformationViewController()
         transformationView.transViewModel = TransformationViewModel(transViewDelegate: transformationView, 
-                                                                    hero: data as! Hero )
+                                                                    hero: data as? Hero )
         self.navigationController?.pushViewController(transformationView,
                                                       animated: true)
     }

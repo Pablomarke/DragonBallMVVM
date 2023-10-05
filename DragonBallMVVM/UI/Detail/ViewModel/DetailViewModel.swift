@@ -31,7 +31,6 @@ final class DetailViewModel {
 }
 
 //MARK: - Extension -
-
 extension DetailViewModel: DetailViewModelProtocol {
     func myHeroFor() -> Hero? {
         return detailData as? Hero

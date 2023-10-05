@@ -11,6 +11,7 @@ import Foundation
 protocol IntroViewModelProtocol {
     func viewIsLoaded()
 }
+
 //MARK: - Clase -
 final class IntroViewModel {
     

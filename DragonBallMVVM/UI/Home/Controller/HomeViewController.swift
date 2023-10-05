@@ -15,11 +15,12 @@ protocol HomeViewControllerProtocol: AnyObject {
 
 //MARK: - Clase -
 class HomeViewController: UIViewController {
-
+    //MARK: - Outlets
     @IBOutlet weak var heroesCollection: UICollectionView!
     
     var viewModel: HomeViewProtocol?
     
+    //MARK: - Ciclo de vida
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
@@ -28,14 +29,12 @@ class HomeViewController: UIViewController {
         heroesCollection.register(UINib(nibName: "HeroCollectionViewCell", 
                                         bundle: nil),
                                   forCellWithReuseIdentifier: "HeroCell")
-        
         viewModel?.viewIsLoaded()
-        
     }
 }
+
 //MARK: - Extension Collection View -
-extension HomeViewController: UICollectionViewDelegate, 
-                                UICollectionViewDataSource {
+extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(
         _ collectionView: UICollectionView,
@@ -61,7 +60,9 @@ extension HomeViewController: UICollectionViewDelegate,
         }
         return cell
     }
-    
+}
+
+extension HomeViewController: UICollectionViewDelegate{
     func collectionView(
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
@@ -70,7 +71,6 @@ extension HomeViewController: UICollectionViewDelegate,
         showHeroDetail(hero: hero )
     }
 }
-
 
 //MARK: - Extension -
 extension HomeViewController: HomeViewControllerProtocol {

@@ -15,22 +15,23 @@ protocol  TransformationsViewControllerProtocol: AnyObject {
 
 //MARK: - Clase -
 class TransformationViewController: UIViewController {
-
+    //MARK: - Outlets
     @IBOutlet weak var transformationCollection: UICollectionView!
     
     var transViewModel: TransformationViewModel?
     
+    //MARK: - Ciclo de vida
     override func viewDidLoad() {
         super.viewDidLoad()
         transformationCollection.dataSource = self
         transformationCollection.delegate = self
-
         transformationCollection.register(UINib(nibName: "HeroCollectionViewCell",
                                             bundle: nil),
                                       forCellWithReuseIdentifier: "HeroCell")
         transViewModel?.viewIsLoaded()
     }
 }
+
 // MARK: UICollectionViewDataSource
 extension TransformationViewController: UICollectionViewDataSource {
     func collectionView(
@@ -50,23 +51,20 @@ extension TransformationViewController: UICollectionViewDataSource {
         ) as? HeroCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
         if let data = transViewModel?.transformationData(at: indexPath.row) {
             cell.updateViews(data: data)
         }
             return cell
-        
     }
 }
-// MARK: UICollectionViewDelegate
 
+// MARK: - UICollectionViewDelegate -
 extension TransformationViewController: UICollectionViewDelegate {
     //TODO: Navegación a detalle transformation
 }
 
 //MARK: - Extension -
 extension TransformationViewController: TransformationsViewControllerProtocol {
-  
     func transPrintData() {
         self.transformationCollection.reloadData()
     }
