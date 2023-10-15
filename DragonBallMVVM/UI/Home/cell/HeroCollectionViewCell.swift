@@ -19,6 +19,7 @@ class HeroCollectionViewCell: UICollectionViewCell {
     }
     
     override func prepareForReuse() {
+        super.prepareForReuse()
         imageHero.image = nil
         nameHero.text = nil
     }

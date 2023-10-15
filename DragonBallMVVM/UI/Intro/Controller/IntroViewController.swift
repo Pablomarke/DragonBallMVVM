@@ -55,6 +55,7 @@ extension IntroViewController: IntroViewControllerProtocol {
                                                       animated: true)
     }
     
+    // PASAR ESTO AL VIEWMODEL
     func myLoading() {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2) ) {
                 self.label1.text = "Honda Vital"
