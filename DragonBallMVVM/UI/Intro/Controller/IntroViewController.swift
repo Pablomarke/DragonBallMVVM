@@ -8,10 +8,10 @@
 import UIKit
 
 //MARK: - Protocolo -
-protocol IntroViewControllerProtocol: AnyObject {
+protocol IntroViewProtocol: AnyObject {
     func navigationToHeroes()
-    func myLoading()
-    func mySession()
+    func stateChargingOne()
+    func stateChargingtwo()
 }
 
 //MARK: - Clase -
@@ -27,51 +27,28 @@ class IntroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         startedView()
-        viewModel?.viewIsLoaded()
+        
     }
 }
 
 //MARK: - Extension -
-extension IntroViewController: IntroViewControllerProtocol {
-    func mySession() {
-        session.login(user: "markedevelop@gmail.com", 
-                      password: "abcd1234") { result in
-            switch result {
-                case .success(_):
-                    print("Acceso ok!")
-                case .failure(let error):
-                    print(error)
-            }
-        }
-    }
-    
+extension IntroViewController: IntroViewProtocol{
     func startedView() {
-        myLoading()
+        viewModel?.viewLoading()
     }
     
     func navigationToHeroes() {
-        let Home = HomeViewController()
-        self.navigationController?.setViewControllers([Home],
-                                                      animated: true)
-    }
-    
-    // PASAR ESTO AL VIEWMODEL
-    func myLoading() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2) ) {
-                self.label1.text = "Honda Vital"
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2) ) {
-                    self.backgroundImage.image = UIImage(named: "fondo1")
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2) ) {
-                        self.navigateToHomeHeroes()
-                }
-            }
-        }
-    }
-    
-    func navigateToHomeHeroes() {
         let home = HomeViewController()
         home.viewModel = HomeViewModel(viewDelegate: home)
         self.navigationController?.setViewControllers([home],
-                                                      animated: true)
+                                                animated: true)
+    }
+    
+    func stateChargingOne(){
+        self.label1.text = "Honda Vital"
+    }
+    
+    func stateChargingtwo(){
+        self.backgroundImage.image = UIImage(named: "fondo1")
     }
 }

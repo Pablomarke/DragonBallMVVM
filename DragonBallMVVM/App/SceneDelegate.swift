@@ -12,7 +12,6 @@ class SceneDelegate: UIResponder,
 
     var window: UIWindow?
 
-
     func scene(
         _ scene: UIScene,
         willConnectTo session: UISceneSession,
@@ -21,8 +20,8 @@ class SceneDelegate: UIResponder,
         guard let scene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: scene)
 
-        let introViewController = IntroViewController()
         let navigationController = UINavigationController()
+        let introViewController = IntroViewController()
         introViewController.viewModel = IntroViewModel(viewDelegate: introViewController)
         
         navigationController.setViewControllers([introViewController],
