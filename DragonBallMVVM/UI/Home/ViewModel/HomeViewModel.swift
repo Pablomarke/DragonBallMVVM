@@ -9,9 +9,10 @@ import Foundation
 
 //MARK: - Protocolo -
 protocol HomeViewProtocol {
-    func viewIsLoaded()
+    func viewIsLoading()
     func myHeroes()
-    func heroData(at index: Int) -> HeroesAndTransformations?
+    func data(at index: Int) -> HeroesAndTransformations?
+    func heroData(at index: Int)
     var heroCount: Int {get}
 }
 
@@ -27,17 +28,17 @@ final class HomeViewModel {
         self.viewDelegate = viewDelegate
     }
     
-     private func loadData() {
-         self.myHeroes()
+    func viewIsLoading() {
+        self.myHeroes()
+    }
+    
+    func viewIsLoaded() {
+        viewDelegate?.printData()
     }
 }
 
 //MARK: - Extension -
 extension HomeViewModel: HomeViewProtocol {
-    func viewIsLoaded() {
-        loadData()
-    }
-    
     func myHeroes()  {
         let networkModel = NetworkModel()
         networkModel.getHeroes { [weak self] result in
@@ -46,7 +47,7 @@ extension HomeViewModel: HomeViewProtocol {
             }
             self?.viewData = heroes
             DispatchQueue.main.async {
-                self?.viewDelegate?.printData()
+                self?.viewIsLoaded()
             }
         }
     }
@@ -54,8 +55,14 @@ extension HomeViewModel: HomeViewProtocol {
     var heroCount: Int {
         viewData.count
     }
+
+    func heroData(at index: Int) {
+        guard let data = data(at: index) else { return }
+        viewDelegate?.showHeroDetail(hero: data)
+    }
     
-    func heroData(at index: Int) -> HeroesAndTransformations? {
+    func data(at index: Int) -> HeroesAndTransformations?{
+        guard index < heroCount else { return nil }
         return viewData[index]
     }
 }

@@ -29,7 +29,7 @@ class HomeViewController: UIViewController {
         heroesCollection.register(UINib(nibName: "HeroCollectionViewCell", 
                                         bundle: nil),
                                   forCellWithReuseIdentifier: "HeroCell")
-        viewModel?.viewIsLoaded()
+        viewModel?.viewIsLoading()
     }
 }
 
@@ -55,7 +55,7 @@ extension HomeViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        if let data = viewModel?.heroData(at: indexPath.row) {
+        if let data = viewModel?.data(at: indexPath.row) {
             cell.updateViews(data: data)
         }
         return cell
@@ -67,8 +67,7 @@ extension HomeViewController: UICollectionViewDelegate{
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        guard let hero = viewModel?.heroData(at: indexPath.row) else { return }
-        showHeroDetail(hero: hero )
+         viewModel?.heroData(at: indexPath.row) 
     }
 }
 
@@ -78,6 +77,7 @@ extension HomeViewController: HomeViewControllerProtocol {
         heroesCollection.reloadData()
     }
     
+    //nav
     func showHeroDetail(hero: HeroesAndTransformations) {
         let detail = DetailViewController()
         detail.detailViewModel = DetailViewModel(detailDelegate: detail, 
