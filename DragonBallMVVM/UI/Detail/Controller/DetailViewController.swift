@@ -10,7 +10,8 @@ import UIKit
 //MARK: - Protocolo -
 protocol DetailViewControllerProtocol: AnyObject {
     func updateView(data: HeroesAndTransformations?)
-    func getTransformation(heroe: HeroesAndTransformations?)
+    func navigateToHomeTransformations(data: HeroesAndTransformations?)
+    
 }
 
 //MARK: - Clase -
@@ -30,48 +31,36 @@ class DetailViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
         transformationButton.isHidden = true
         transformationView.isHidden = true
-        detailViewModel?.viewLoaded()
+        detailViewModel?.viewLoading()
     }
     
     //MARK: - Acción de Botón -
     @IBAction func transformationAction(_ sender: Any) {
-        self.navigateToHomeTransformations(data: detailViewModel?.myHeroFor())
+        detailViewModel?.navigateToTransformations()
     }
 }
     
 //MARK: - Extension -
 extension DetailViewController: DetailViewControllerProtocol {
-    func getTransformation(heroe: HeroesAndTransformations?) {
-        var modelTransformations: [Transformation?] = []
-        session.getTransformations(
-            for: heroe!
-        ) {  result in
-            switch result {
-                case let .success(transformations):
-                    DispatchQueue.main.async {
-                        modelTransformations.append(contentsOf: transformations)
-                        if modelTransformations.count > 0 {
-                            self.transformationButton.isHidden = false
-                            self.transformationView.isHidden = false
-                        }
-                    }
-                case let .failure(error):
-                    print("\(error)")
-            }
-        }
-    }
-    
+
     func updateView(data: HeroesAndTransformations?) {
         guard let data = data else {return}
         heroImage.setImage(for: data.photo)
         heroNameLabel.text = data.name 
         heroDescription.text = data.description
+        buttonHidden()
+    }
+    
+    func buttonHidden(){
+        if detailViewModel?.transformationCount ?? 0 > 0 {
+            self.transformationButton.isHidden = false
+            self.transformationView.isHidden = false
+        }
     }
     
     func navigateToHomeTransformations(data: HeroesAndTransformations?) {
-        guard let data = data else {return}
         let transformationView = TransformationViewController()
-        transformationView.transViewModel = TransformationViewModel(transViewDelegate: transformationView, 
+        transformationView.transViewModel = TransformationViewModel(transViewDelegate: transformationView,
                                                                     hero: data as? Hero )
         self.navigationController?.pushViewController(transformationView,
                                                       animated: true)
