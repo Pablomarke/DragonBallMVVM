@@ -22,7 +22,7 @@ final class DetailViewModel {
     private var modelTransformations: [Transformation?] = []
     
     init(detailDelegate: DetailViewControllerProtocol? = nil,
-         detailData: HeroesAndTransformations?, modelTransformations: [Transformation?] = []) {
+         detailData: HeroesAndTransformations?, modelTransformations: [Transformation?] = [] ) {
         self.detailDelegate = detailDelegate
         self.detailData = detailData
         self.modelTransformations = modelTransformations
@@ -38,14 +38,15 @@ final class DetailViewModel {
     }
     
     func navigateToTransformations(){
-        detailDelegate?.navigateToHomeTransformations(data: self.detailData)
+        detailDelegate?.navigateToHomeTransformations(data: detailData,
+                                                      transformations: modelTransformations)
     }
 }
 
 //MARK: - Extension -
 extension DetailViewModel: DetailViewModelProtocol {
     var transformationCount: Int {
-        modelTransformations.count
+        modelTransformations.count 
     }
     
     func getTransformation(heroe: HeroesAndTransformations?) {

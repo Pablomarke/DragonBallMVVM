@@ -10,7 +10,7 @@ import UIKit
 //MARK: - Protocolo -
 protocol DetailViewControllerProtocol: AnyObject {
     func updateView(data: HeroesAndTransformations?)
-    func navigateToHomeTransformations(data: HeroesAndTransformations?)
+    func navigateToHomeTransformations(data: HeroesAndTransformations?, transformations: [Transformation?])
     
 }
 
@@ -42,7 +42,6 @@ class DetailViewController: UIViewController {
     
 //MARK: - Extension -
 extension DetailViewController: DetailViewControllerProtocol {
-
     func updateView(data: HeroesAndTransformations?) {
         guard let data = data else {return}
         heroImage.setImage(for: data.photo)
@@ -57,11 +56,11 @@ extension DetailViewController: DetailViewControllerProtocol {
             self.transformationView.isHidden = false
         }
     }
-    
-    func navigateToHomeTransformations(data: HeroesAndTransformations?) {
+    func navigateToHomeTransformations(data: HeroesAndTransformations?, transformations: [Transformation?]) {
         let transformationView = TransformationViewController()
         transformationView.transViewModel = TransformationViewModel(transViewDelegate: transformationView,
-                                                                    hero: data as? Hero )
+                                                                    hero: data as? Hero,
+                                                                    transViewData: transformations)
         self.navigationController?.pushViewController(transformationView,
                                                       animated: true)
     }

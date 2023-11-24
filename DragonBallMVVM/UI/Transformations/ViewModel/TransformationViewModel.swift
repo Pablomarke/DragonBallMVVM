@@ -17,19 +17,20 @@ protocol TransformationViewModelProtocol {
 final class TransformationViewModel {
     private weak var transViewDelegate: TransformationsViewControllerProtocol?
     private var hero: Hero?
-    private var transViewData: [HeroesAndTransformations] = []
+    private var transViewData: [Transformation?] = []
     
-    init(transViewDelegate: TransformationsViewControllerProtocol? = nil, hero: Hero? ) {
+    init(transViewDelegate: TransformationsViewControllerProtocol? = nil, hero: Hero?, transViewData: [Transformation?]) {
         self.transViewDelegate = transViewDelegate
         self.hero = hero
+        self.transViewData = transViewData
     }
     
     func viewIsLoading() {
-        myTransformations()
+        transViewDelegate?.transPrintData()
     }
     
     func viewIsLoaded() {
-        transViewDelegate?.transPrintData()
+        
     }
 }
 
