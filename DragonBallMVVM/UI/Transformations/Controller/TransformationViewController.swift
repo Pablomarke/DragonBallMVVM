@@ -9,7 +9,6 @@ import UIKit
 
 //MARK: - Protocolo -
 protocol  TransformationsViewControllerProtocol: AnyObject {
-    func showHeroDetail(hero: HeroesAndTransformations)
     func transPrintData()
 }
 
@@ -24,11 +23,10 @@ class TransformationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         transformationCollection.dataSource = self
-        transformationCollection.delegate = self
         transformationCollection.register(UINib(nibName: "HeroCollectionViewCell",
                                             bundle: nil),
                                       forCellWithReuseIdentifier: "HeroCell")
-        transViewModel?.viewIsLoaded()
+        transViewModel?.viewIsLoading()
     }
 }
 
@@ -58,22 +56,9 @@ extension TransformationViewController: UICollectionViewDataSource {
     }
 }
 
-// MARK: - UICollectionViewDelegate -
-extension TransformationViewController: UICollectionViewDelegate {
-    //TODO: Navegación a detalle transformation
-}
-
 //MARK: - Extension -
 extension TransformationViewController: TransformationsViewControllerProtocol {
     func transPrintData() {
         self.transformationCollection.reloadData()
-    }
-    
-    func showHeroDetail(hero: HeroesAndTransformations) {
-        let detail = DetailViewController()
-        detail.detailViewModel = DetailViewModel(detailDelegate: detail,
-                                                 detailData: hero)
-        self.navigationController?.pushViewController(detail,
-                                                      animated: true)
     }
 }

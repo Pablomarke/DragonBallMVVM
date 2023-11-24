@@ -11,7 +11,6 @@ import Foundation
 protocol DetailViewModelProtocol {
     func viewLoading()
     func viewLoaded()
-   // func myHeroFor() -> Hero?
     var transformationCount: Int {get}
     func navigateToTransformations()
 }
@@ -49,11 +48,6 @@ extension DetailViewModel: DetailViewModelProtocol {
         modelTransformations.count
     }
     
-    /*
-    func myHeroFor() -> Hero? {
-        return detailData as? Hero
-    }*/
-    
     func getTransformation(heroe: HeroesAndTransformations?) {
         session.getTransformations(
             for: heroe!
@@ -69,6 +63,4 @@ extension DetailViewModel: DetailViewModelProtocol {
             }
         }
     }
-    
-    
 }

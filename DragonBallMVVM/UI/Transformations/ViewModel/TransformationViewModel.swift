@@ -9,15 +9,12 @@ import Foundation
 
 //MARK: - Protocolo -
 protocol TransformationViewModelProtocol {
-    func viewIsLoaded()
-    func myTransformations()
-    func transformationData(at index: Int) -> HeroesAndTransformations?
+    func viewIsLoading()
     var transformationCount: Int {get}
 }
 
 //MARK: - Clase -
 final class TransformationViewModel {
-    
     private weak var transViewDelegate: TransformationsViewControllerProtocol?
     private var hero: Hero?
     private var transViewData: [HeroesAndTransformations] = []
@@ -27,21 +24,17 @@ final class TransformationViewModel {
         self.hero = hero
     }
     
-     private func loadData() {
-            myTransformations()
+    func viewIsLoading() {
+        myTransformations()
+    }
+    
+    func viewIsLoaded() {
+        transViewDelegate?.transPrintData()
     }
 }
 
 //MARK: - Extension -
 extension TransformationViewModel: TransformationViewModelProtocol {
-    func viewIsLoaded() {
-        loadData()
-    }
-    
-    func transformationData(at index: Int) -> HeroesAndTransformations? {
-        return transViewData[index]
-    }
-    
     var transformationCount: Int {
         transViewData.count
     }
@@ -54,11 +47,15 @@ extension TransformationViewModel: TransformationViewModelProtocol {
                 case let .success(transformations):
                     self.transViewData = transformations
                     DispatchQueue.main.async {
-                        self.transViewDelegate?.transPrintData()
+                        self.viewIsLoaded()
                     }
                 case let .failure(error):
                     print("\(error)")
             }
         }
+    }
+    
+    func transformationData(at index: Int) -> HeroesAndTransformations? {
+        return transViewData[index]
     }
 }
